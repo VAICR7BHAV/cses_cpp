@@ -3,4 +3,4 @@ project(CSES_C__)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CSES_C__ main.cpp)
+add_executable(CSES_C__ main.cpp test.cpp)

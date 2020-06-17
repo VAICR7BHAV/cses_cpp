@@ -83,6 +83,9 @@
 		<Unit filename="C:/Users/Vaibhav/CLionProjects/CSES_C++/main.cpp">
 			<Option target="CSES_C__"/>
 		</Unit>
+		<Unit filename="C:/Users/Vaibhav/CLionProjects/CSES_C++/test.cpp">
+			<Option target="CSES_C__"/>
+		</Unit>
 		<Unit filename="C:/Users/Vaibhav/CLionProjects/CSES_C++/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

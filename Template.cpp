@@ -10,6 +10,7 @@ using namespace std;
 using ll = long long int;
 const int MOD = 1e9 + 7;
 
+
 int main()
 {
 	ios::sync_with_stdio(false);
