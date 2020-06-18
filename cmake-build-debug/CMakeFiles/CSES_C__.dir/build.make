@@ -69,29 +69,29 @@ CMakeFiles/CSES_C__.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSES_C__.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Vaibhav\CLionProjects\CSES_C++\main.cpp -o CMakeFiles\CSES_C__.dir\main.cpp.s
 
-CMakeFiles/CSES_C__.dir/test.cpp.obj: CMakeFiles/CSES_C__.dir/flags.make
-CMakeFiles/CSES_C__.dir/test.cpp.obj: ../test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Vaibhav\CLionProjects\CSES_C++\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CSES_C__.dir/test.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CSES_C__.dir\test.cpp.obj -c C:\Users\Vaibhav\CLionProjects\CSES_C++\test.cpp
+CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj: CMakeFiles/CSES_C__.dir/flags.make
+CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj: ../Two_sets_2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Vaibhav\CLionProjects\CSES_C++\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CSES_C__.dir\Two_sets_2.cpp.obj -c C:\Users\Vaibhav\CLionProjects\CSES_C++\Two_sets_2.cpp
 
-CMakeFiles/CSES_C__.dir/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSES_C__.dir/test.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Vaibhav\CLionProjects\CSES_C++\test.cpp > CMakeFiles\CSES_C__.dir\test.cpp.i
+CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Vaibhav\CLionProjects\CSES_C++\Two_sets_2.cpp > CMakeFiles\CSES_C__.dir\Two_sets_2.cpp.i
 
-CMakeFiles/CSES_C__.dir/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSES_C__.dir/test.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Vaibhav\CLionProjects\CSES_C++\test.cpp -o CMakeFiles\CSES_C__.dir\test.cpp.s
+CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Vaibhav\CLionProjects\CSES_C++\Two_sets_2.cpp -o CMakeFiles\CSES_C__.dir\Two_sets_2.cpp.s
 
 # Object files for target CSES_C__
 CSES_C___OBJECTS = \
 "CMakeFiles/CSES_C__.dir/main.cpp.obj" \
-"CMakeFiles/CSES_C__.dir/test.cpp.obj"
+"CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj"
 
 # External object files for target CSES_C__
 CSES_C___EXTERNAL_OBJECTS =
 
 CSES_C__.exe: CMakeFiles/CSES_C__.dir/main.cpp.obj
-CSES_C__.exe: CMakeFiles/CSES_C__.dir/test.cpp.obj
+CSES_C__.exe: CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj
 CSES_C__.exe: CMakeFiles/CSES_C__.dir/build.make
 CSES_C__.exe: CMakeFiles/CSES_C__.dir/linklibs.rsp
 CSES_C__.exe: CMakeFiles/CSES_C__.dir/objects1.rsp

@@ -122,6 +122,33 @@ CSES_C__/fast:
 	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/build
 .PHONY : CSES_C__/fast
 
+Two_sets_2.obj: Two_sets_2.cpp.obj
+
+.PHONY : Two_sets_2.obj
+
+# target to build an object file
+Two_sets_2.cpp.obj:
+	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.obj
+.PHONY : Two_sets_2.cpp.obj
+
+Two_sets_2.i: Two_sets_2.cpp.i
+
+.PHONY : Two_sets_2.i
+
+# target to preprocess a source file
+Two_sets_2.cpp.i:
+	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.i
+.PHONY : Two_sets_2.cpp.i
+
+Two_sets_2.s: Two_sets_2.cpp.s
+
+.PHONY : Two_sets_2.s
+
+# target to generate assembly for a file
+Two_sets_2.cpp.s:
+	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/Two_sets_2.cpp.s
+.PHONY : Two_sets_2.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -149,33 +176,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test.obj: test.cpp.obj
-
-.PHONY : test.obj
-
-# target to build an object file
-test.cpp.obj:
-	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/test.cpp.obj
-.PHONY : test.cpp.obj
-
-test.i: test.cpp.i
-
-.PHONY : test.i
-
-# target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/test.cpp.i
-.PHONY : test.cpp.i
-
-test.s: test.cpp.s
-
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles\CSES_C__.dir\build.make CMakeFiles/CSES_C__.dir/test.cpp.s
-.PHONY : test.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -185,12 +185,12 @@ help:
 	@echo ... CSES_C__
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Two_sets_2.obj
+	@echo ... Two_sets_2.i
+	@echo ... Two_sets_2.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... test.obj
-	@echo ... test.i
-	@echo ... test.s
 .PHONY : help
 
 
