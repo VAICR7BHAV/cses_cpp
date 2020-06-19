@@ -8,9 +8,10 @@ using namespace std;
 # define REP(i,a,b) for(int i=a;i<=b;i++)
 using ll = long long int;
 const int MOD = 1e9 + 7;
+const ll INF=1e18;
 int main()
 {
-	ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     cin.tie(0);
     int n;
     cin>>n;
@@ -21,29 +22,34 @@ int main()
         cin>>temp;
         x[i]=temp;
     }
-    vector<pair<ll,int>> max_len;
-    
+    //dp[i]=Element at which a subsequence of length i terminates
+    vector <ll> dp(n+1);
+
+    for(int i=0;i<=n;i++)
+    {
+        dp[i]=INF;
+    }
+    dp[0]=-1*INF;
+
     for(int i=0;i<n;i++)
     {
-        int max_less_than=0;
-        for(int j=0;j<max_len.size();j++)
+        int pos=upper_bound(dp.begin(),dp.end(),x[i])-dp.begin();
+        //cout<<x[i]<<" "<<pos<<endl;
+        if(dp[pos-1]<x[i] && x[i]<dp[pos])
         {
-            if(max_len[j].first<x[i])
-            {
-                max_less_than=max(max_less_than,max_len[j].second);
-            }
+            dp[pos]=x[i];
         }
-        max_len.push_back(make_pair(x[i],max_less_than+1));
     }
-    // for(int i=0;i<n;i++)
-    // {
-    //     cout<<'('<<max_len[i].first<<" "<<max_len[i].second<<")";
-    // }
-    // cout<<endl;
     int ans=0;
-    for(int i=0;i<max_len.size();i++)
+    for(int i=0;i<n+1;i++)
     {
-        ans=max(ans,max_len[i].second);
+        if(dp[i]<INF)
+        {
+            ans=i;
+        } else
+        {
+            break;
+        }
     }
     cout<<ans;
 }
