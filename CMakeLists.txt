@@ -3,4 +3,4 @@ project(CSES_C__)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CSES_C__ main.cpp Two_sets_2.cpp)
+add_executable(CSES_C__ main.cpp Two_sets_2.cpp Message_Route.cpp)

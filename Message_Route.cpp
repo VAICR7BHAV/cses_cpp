@@ -22,7 +22,7 @@ vector<int> restore_path(int s, int t, vector<int> const& p) {
     reverse(path.begin(), path.end());
     return path;
 }
-int main()
+int maine()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);

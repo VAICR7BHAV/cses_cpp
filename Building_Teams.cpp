@@ -50,7 +50,7 @@ int main()
         }
     }
 
-    cout << (is_bipartite ? "YES" : "NO") << endl;
+    
     if(is_bipartite)
     {
         for(int i=0;i<side.size();i++)

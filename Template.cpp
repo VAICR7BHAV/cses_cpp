@@ -9,9 +9,9 @@ using namespace std;
 # define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 using ll = long long int;
 const int MOD = 1e9 + 7;
+const ll INF=10e18;
 
-
-int main()
+int template()
 {
 	ios::sync_with_stdio(false);
     cin.tie(0);
