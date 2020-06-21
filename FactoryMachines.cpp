@@ -6,62 +6,64 @@ using namespace std;
 # define F first
 # define S second
 # define REP(i,a,b) for(int i=a;i<=b;i++)
-using ll = long long int;
+using ll = unsigned long long int;
 const int MOD = 1e9 + 7;
-bool valid(double x,ll t,ll n,ll k[])
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+ll products_made(ll time,ll arr[],int n)
 {
-    ll sum=0;
-    REP(i,0,n-1)
+    ll products_made=0;
+    for(int i=0;i<n;i++)
     {
-        sum+=floor(x/k[i]);
-        if(sum>t)
-        {
-            return true;
-            break;
-        }
+        products_made+=time/arr[i];
     }
-    if(sum>=t)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return products_made;
 }
 int main()
 {
-    ll n,t;
-    cin>>n>>t;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n;
+    cin>>n;
+    ll t;
+    cin>>t;
     ll k[n];
-    REP(i,0,n-1)
+    for (int i = 0; i < n; i++)
     {
-        cin>>k[i];
+        ll temp;
+        cin>>temp;
+        k[i]=temp;
     }
-    double x = -1;
-    double z=1000000000000000001;
-    for (double b = floor(z); b >= 1; b = floor(b/2)) 
+
+    ll lb=0,ub=10e18+1;
+    ll ans=10e18+1;
+    while(lb<=ub)
     {
-        while (!valid(x+b,t,n,k)) 
+        ll mid=(lb+ub)/2;
+        ll prod=products_made(mid,k,n);
+        if(prod>=t)
         {
-            x = floor(x + b);
+            ans=min(ans,mid);
+            ub=mid-1;
         }
-    }
-    double ans = floor(x+1);
-    cout<<fixed;
-    string s=to_string(ans);
-    string final="";
-    for(int i=0;i<s.length();i++)
-    {
-        if(s[i]!='.')
-        {
-            final+=s[i];
-        }
+
         else
         {
-            break;
+            lb=mid+1;
         }
-        
+
     }
-    cout<<final;
+    // cout<<products_made(7,k,n)<<endl;
+    // for(ll i=ans-1;i>0;i--)
+    // {
+    //     if(products_made(i,k,n)==t)
+    //     {
+    //         ans=min(ans,i);
+    //     }
+    //     else
+    //     {
+    //         break;
+    //     }
+
+    // }
+    cout<<ans;
 }
