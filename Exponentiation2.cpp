@@ -1,42 +1,45 @@
 #include <bits/stdc++.h>
+
 using namespace std;
-using ll = long long int;
+# define M_PI 3.14159265358979323846
+# define epsi 1e-9
+# define F first
+# define S second
+# define REP(i,a,b) for(int i=a;i<=b;i++)
+using ll = unsigned long long int;
 const int MOD = 1e9 + 7;
-ll arr_of_pow[30];
-ll binpowMOD(ll a,ll b)
-{
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
+ll binpowmodm(ll a, ll b, ll m) {
+    a %= m;
     ll res = 1;
-    while (b > 0) 
-    {
+    while (b > 0) {
         if (b & 1)
-            res = (res * a)%MOD;
-        a = (a * a)%MOD;
+            res = res * a % m;
+        a = a * a % m;
         b >>= 1;
     }
-    return res%MOD;
+    return res;
 }
-ll binpow(ll a,ll b)
-{
+ll binpow(ll a, ll b) {
     ll res = 1;
-    while (b > 0) 
-    {
+    while (b > 0) {
         if (b & 1)
-            res = (res * a);
-        a = (a * a);
+            res = res * a;
+        a = a * a;
         b >>= 1;
     }
     return res;
 }
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
     int n;
     cin>>n;
-    while(n>0)
+    while(n-->0)
     {
         ll a,b,c;
         cin>>a>>b>>c;
-        ll bc=binpow(b,c);
-        cout<<binpowMOD(a,bc)<<endl;
-        n-=1;   
+        cout<<binpowmodm(a,binpowmodm(b,c,MOD-1),MOD)<<'\n';
     }
 }
