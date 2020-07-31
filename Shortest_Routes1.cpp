@@ -5,43 +5,37 @@ using namespace std;
 # define epsi 1e-9
 # define F first
 # define S second
+# define pi pair<ll,ll>
+#define vect vector
 # define REP(i,a,b) for(int i=a;i<=b;i++)
-using ll =unsigned long long int;
+using ll = long long int;
 const int MOD = 1e9 + 7;
-const ll INF = 1e18;
+const ll INF=1e18;
 # define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
-vector<vector<pair<int,ll>>> adj;
-void djikstra(int s/*Source vertex*/,vector<ll>&d/*Vector to store distance*/
-        )
+
+void dijsktra(int s,vect<ll>&d,vect<ll>&p,vect<vect<pi>> &adj)
 {
-    int n=adj.size();//Number of nodes
-    d.assign(n,INF);//Initializing all distances as infinity at the beginning.
-    //Defind INF as some large number const int INF = 1000000000;
-
-    vector<bool> visited(n,false);//All vertices are marked unvisited at the beginning
-    d[s]=0;//Source vertex has distance 0 from itself.
-    for (int i = 0; i < n; ++i)
+    int n=adj.size();
+    //d.assign(n,INF);
+    d[s]=0;
+    priority_queue<pi,vect<pi>,greater<pi>> q;
+    q.push({0,s});
+    while(!q.empty())
     {
-        int u=-1;
-        for (int j = 0; j < n; ++j)
+        auto v=q.top().S;
+        auto d_v=q.top().F;
+        q.pop();
+        if(d_v!=d[v])
+            continue;
+        for(auto edge:adj[v])
         {
-            if(!visited[j] && (u==-1 || d[j]<d[u]))
+            ll to=edge.S;
+            ll len=edge.F;
+            if(d[v]+len<d[to])
             {
-                u=j;
-            }
-        }
-        if(d[u]==INF)
-            break;
-
-        visited[u]=true;
-        for(auto edge:adj[u])
-        {
-            int v=edge.first;
-            int len=edge.second;
-            if(d[u]+len<d[v])
-            {
-                d[v]=d[u]+len;
-
+                d[to]=d[v]+len;
+                p[to]=v;
+                q.push({d[to],to});
             }
         }
     }
@@ -52,18 +46,18 @@ int main()
     cin.tie(0);
     int n,m;
     cin>>n>>m;
-    for (int i = 0; i < n; ++i) {
-        vector<pair<int,ll>> temp;
-        adj.push_back(temp);
-    }
-    for (int i = 0; i < m; ++i) {
-        int a,b;ll c;
+    vect<vect<pi>> adj(n+1);
+    for (int i = 0; i < m; ++i)
+    {
+        ll a,b,c;
         cin>>a>>b>>c;
-        adj[a-1].push_back(make_pair(b-1,c));
+        adj[a].push_back({c,b});
     }
-    vector<ll> shortest_path;
-    djikstra(0,shortest_path);
-    for (int i = 0; i < n; ++i) {
-        cout<<shortest_path[i]<<" ";
+    vector<ll> d(n+1,INF);
+    vector<ll> p(n+1,INF);
+    dijsktra(1,d,p,adj);
+    for (int i = 1; i < n+1; ++i)
+    {
+        cout<<d[i]<<" ";
     }
 }

@@ -8,7 +8,7 @@ int main()
     ll x;
     cin>>n>>x;
     ll a[n];
-    unordered_map<ll,int> hm;
+    map<ll,int> hm;
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
