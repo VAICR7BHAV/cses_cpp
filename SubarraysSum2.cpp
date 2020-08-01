@@ -26,7 +26,7 @@ int main()
         for (int i = 0; i < n; ++i) {
             cin >> a[i];
         }
-        int count = 0;ll curr_sum=a[0];
+        ll count = 0;ll curr_sum=a[0];
         map<ll,int> mp;
         mp[curr_sum]+=1;
         if(curr_sum==x)
@@ -36,13 +36,11 @@ int main()
             curr_sum+=a[i];
             if(curr_sum==x)
                 count+=1;
-            else
-            {
-                if(mp.find(curr_sum-x)!=mp.end())
+              if(mp.find(curr_sum-x)!=mp.end())
                 {
                     count+=mp[curr_sum-x];
                 }
-            }
+
             mp[curr_sum]+=1;
         }
         cout<<count;
