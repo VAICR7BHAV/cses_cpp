@@ -8,6 +8,7 @@ using namespace std;
 # define vect vector
 # define pll pair<ll,ll>
 # define pii pair<int,int>
+# define map unordered_map
 # define REP(i,a,b) for(int i=a;i<=b;i++)
 using ll = long long int;
 const int MOD = 1e9 + 7;
@@ -28,7 +29,6 @@ void build(vector<ll>&a,int v,int tl,int tr,vector<ll>&t)
 }
 ll sum(int v,int tl,int tr,int l,int r,vector<ll>&t)
 {
-
     if(l>r)
         return 0;
     if(l==tl && r==tr)
@@ -82,26 +82,52 @@ int main()
         int n,k;
         cin>>n>>k;
         vector<int> x(n);
-        vect<ll> freq_arr(3*1e5,0);int count=0;
+        map<ll,ll> visited;
+        vector<int> unique_values;
         for(int i=0;i<n;i++)
         {
             cin>>x[i];
+            if(visited.find(x[i])==visited.end())
+            {
+                unique_values.push_back(x[i]);
+            }
+            visited[x[i]]+=1;
+        }
+        sort(unique_values.begin(),unique_values.end());
+        map<int,int> mapped_values;
+        map<int,int> unmapped_values;
+        for(int i=0;i<unique_values.size();i++)
+        {
+            mapped_values[unique_values[i]]=i+1;
+            unmapped_values[i+1]=unique_values[i];
+        }
+        vector<int> mapped_arr(n);
+        for(int i=0;i<n;i++)
+        {
+            mapped_arr[i]=mapped_values[x[i]];
+        }
+        vect<ll> freq_arr(3*1e5,0);int count=0;
+        for(int i=0;i<n;i++)
+        {
+            //cin>>x[i];
             if(count<k)
             {
-                freq_arr[x[i]-1]+=1;count+=1;
-            }
+                freq_arr[mapped_arr[i]-1]+=1;count+=1;
+            } else
+                break;
         }
+
         int freq_size=freq_arr.size();
         vector<ll>tree(4*freq_size);
-        build(freq_arr,1,0,freq_size-1,tree);        
-            cout<<bin_search_pos(tree,freq_size,k-k/2)+1<<" ";            
+        build(freq_arr,1,0,freq_size-1,tree);
+        cout<<unmapped_values[bin_search_pos(tree,freq_size,k-k/2)+1]<<" ";
         for(int i=k;i<n;i++)
         {
-            freq_arr[x[i]-1]+=1;
-            update(1,0,freq_size-1,x[i]-1,freq_arr[x[i]-1],tree);
-            freq_arr[x[i-k]-1]-=1;
-            update(1,0,freq_size-1,x[i-k]-1,freq_arr[x[i-k]-1],tree);
-            cout<<bin_search_pos(tree,freq_size,k-k/2)+1<<" ";
+            freq_arr[mapped_arr[i]-1]+=1;
+            update(1,0,freq_size-1,mapped_arr[i]-1,freq_arr[mapped_arr[i]-1],tree);
+            freq_arr[mapped_arr[i-k]-1]-=1;
+            update(1,0,freq_size-1,mapped_arr[i-k]-1,freq_arr[mapped_arr[i-k]-1],tree);
+            cout<<unmapped_values[bin_search_pos(tree,freq_size,k-k/2)+1]<<" ";
         }
     }
 }
